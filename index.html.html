@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Neha 💕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Comic Sans MS', cursive;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+min-height:100vh;
+text-align:center;
+overflow:hidden;
+transition:1s;
+color:white;
+cursor:none;
+background:linear-gradient(-45deg,#ff9a9e,#fecfef,#ffc3f7,#ffb6e6);
+background-size:400% 400%;
+animation:bgGlow 8s ease infinite;
+}
+
+@keyframes bgGlow{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* FLOATING */
+.floating{
+position:fixed;
+top:-50px;
+font-size:28px;
+animation:fall 7s linear forwards;
+pointer-events:none;
+z-index:5;
+}
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+
+/* VIDEO SCREEN */
+#videoScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+#videoScreen video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* PASSWORD */
+#passwordScreen{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:linear-gradient(135deg,#ffb6e6,#ffc1f3,#ffd6fa);
+display:flex;justify-content:center;align-items:center;
+z-index:9999;
+}
+.passwordBox{
+background:white;padding:30px;border-radius:25px;
+box-shadow:0 0 30px rgba(255,0,150,0.3);
+text-align:center;
+}
+.passwordBox h2{color:#ff4da6;margin-bottom:15px;}
+.passwordBox input{
+padding:12px;border-radius:20px;border:2px solid #ffb6e6;
+outline:none;text-align:center;font-size:16px;
+}
+.passwordBox button{
+margin-top:15px;padding:10px 25px;border:none;
+border-radius:20px;background:#ff4da6;color:white;
+font-size:16px;cursor:pointer;
+}
+
+/* MAIN */
+#mainContent{display:flex;flex-direction:column;gap:25px;z-index:2;}
+#buttonContainer{display:flex;gap:20px;position:relative;}
+button{
+padding:15px;border:none;border-radius:30px;
+font-size:18px;width:200px;cursor:pointer;
+transition:0.3s;
+}
+.yes{background:#ff4da6;color:white;}
+.no{background:#ccc;color:black;position:relative;}
+
+/* SLIDESHOW (BIGGER NOW) */
+#slideshowSection{
+position:fixed;
+bottom:20px;
+width:100%;
+display:none;
+text-align:center;
+z-index:10;
+}
+.slide{
+width:320px;
+height:420px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 0 25px rgba(0,0,0,0.5);
+opacity:0;
+transition:1s;
+}
+.activeSlide{opacity:1;}
+
+/* LOVE LETTER */
+#loveLetter{
+position:fixed;
+top:50%;left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:white;color:#ff4da6;
+padding:30px;border-radius:25px;
+width:90%;max-width:400px;
+display:none;
+box-shadow:0 0 40px rgba(255,0,150,0.5);
+z-index:999;
+transition:0.6s;
+}
+
+/* LOVE GAME */
+#loveGame{
+position:fixed;
+top:50%;left:50%;
+transform:translate(-50%,-50%);
+background:white;
+color:#ff4da6;
+padding:25px;
+border-radius:25px;
+width:90%;max-width:400px;
+display:none;
+box-shadow:0 0 40px rgba(255,0,150,0.5);
+z-index:999;
+}
+#gameArea{
+position:relative;
+width:100%;
+height:300px;
+overflow:hidden;
+margin-top:15px;
+background:linear-gradient(#ffb6e6,#ffc1f3);
+border-radius:20px;
+}
+.heart{
+position:absolute;
+font-size:28px;
+cursor:pointer;
+animation:fallHeart linear;
+}
+@keyframes fallHeart{
+from{top:-30px;}
+to{top:300px;}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="Unakkul Naane - Pritt(MP3_160K).mp3" type="audio/mpeg">
+</audio>
+
+<audio id="kissSound">
+<source src="Mwah - Sound Effect(MP3_160K).mp3" type="audio/mpeg">
+</audio>
+
+<div id="videoScreen">
+<video id="celebrationVideo" autoplay>
+<source src="video1.mp4" type="video/mp4">
+</video>
+</div>
+
+<div id="passwordScreen">
+<div class="passwordBox">
+<h2>💜 GOAT NAME 💜</h2>
+<input type="password" id="passwordInput" placeholder="NO 10">
+<br>
+<button onclick="checkPassword()">Unlock 💖</button>
+</div>
+</div>
+
+<div id="mainContent">
+<h1 id="question">Do you love me more than chocolate? 🍫💖</h1>
+<div id="buttonContainer">
+<button class="yes" id="yesBtn" onclick="yesAnswer()">Yes 😘</button>
+<button class="no" id="noBtn">No 😭</button>
+</div>
+</div>
+
+<div id="slideshowSection">
+<h2>Prettiest Girl mwahhhhhhhhhhhhh 💖</h2>
+<img id="slideImage" class="slide">
+</div>
+
+<div id="loveLetter">
+<h2>💌 For My Prettiest Girl 💌</h2>
+<p style="margin-top:15px;font-size:18px;">
+My Love 💖<br><br>
+You are my forever, my happiness, my everything 🥺💕<br>
+💌 For My Chellamey 🌷💕
+
+My Chellamey, my Chella Kutty, my little Chuchu 🥺💖
+
+Soon we’ll celebrate one beautiful year together, and my heart feels so full just thinking about it 🌷✨ Even though we’ve been fighting these past few days, nothing can ever change how much you mean to me. You are my peace, my comfort, my safe place, my home.
+
+I miss your voice, your smile, the way you say my name. Every tulip reminds me of your soft heart, and every Kuromi emoji 😈💜 reminds me of your cute stubborn side I adore.
+</p>
+<br>
+<button onclick="startLoveGame()">Play Love Game 💖</button>
+</div>
+
+<div id="loveGame">
+<h2>💖 Catch My Love 💖</h2>
+<p>Tap the falling hearts Chellamey 😘</p>
+<h3>Score: <span id="score">0</span></h3>
+<div id="gameArea"></div>
+</div>
+
+<script>
+
+let bgMusic=document.getElementById("bgMusic");
+let kissSound=document.getElementById("kissSound");
+let yesBtn=document.getElementById("yesBtn");
+let noBtn=document.getElementById("noBtn");
+
+let size=1;
+let step=0;
+let score=0;
+let gameInterval;
+
+function checkPassword(){
+let pass=document.getElementById("passwordInput").value;
+if(pass==="messi"){
+document.getElementById("passwordScreen").style.display="none";
+startFloating();
+bgMusic.volume=0.6;
+bgMusic.play().catch(()=>{});
+}
+}
+
+function startFloating(){
+setInterval(()=>{
+let items=["💕","💖","💘","🌸","🌷"];
+let el=document.createElement("div");
+el.className="floating";
+el.innerText=items[Math.floor(Math.random()*items.length)];
+el.style.left=Math.random()*100+"vw";
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),7000);
+},300);
+}
+
+const questions=[
+"Do you love me more than chocolate? 🍫💖",
+"Will you hold my hand forever? 🤝✨",
+"Do you smile when you think of me? 😊💕",
+"Are we made for each other? 💞",
+"Will you stay with me through fights too? 🥺💜",
+"Are we the cutest couple ever? 😚💞",
+"Will you be my forever person? 💍💖",
+"Will you be my Valentine? 💘"
+];
+
+function yesAnswer(){
+kissSound.currentTime=0;
+kissSound.play();
+size+=0.2;
+yesBtn.style.transform="scale("+size+")";
+step++;
+if(step<questions.length){
+document.getElementById("question").innerText=questions[step];
+}else{
+document.getElementById("mainContent").style.display="none";
+playVideo();
+}
+}
+
+noBtn.addEventListener("mouseover",()=>{
+let x=Math.random()*(window.innerWidth-200);
+let y=Math.random()*(window.innerHeight-100);
+noBtn.style.position="absolute";
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+});
+
+function playVideo(){
+let screen=document.getElementById("videoScreen");
+let video=document.getElementById("celebrationVideo");
+screen.style.display="flex";
+video.currentTime=0;
+video.play();
+setTimeout(()=>{
+video.pause();
+screen.style.display="none";
+startSlideshow();
+},8000);
+}
+
+const images=[
+"image1.jpg",
+"https://th.bing.com/th/id/OIP.wly1UEx2M7opHL9HWMKXeQHaF5?w=229&h=183",
+"image2.jpg",
+"https://th.bing.com/th/id/OIP.GAFuAudvpbSzDwaEQye4gwHaEK?w=295&h=180"
+];
+
+function startSlideshow(){
+let section=document.getElementById("slideshowSection");
+let img=document.getElementById("slideImage");
+section.style.display="block";
+let index=0;
+img.src=images[index];
+img.classList.add("activeSlide");
+
+let interval=setInterval(()=>{
+index=(index+1)%images.length;
+img.classList.remove("activeSlide");
+setTimeout(()=>{
+img.src=images[index];
+img.classList.add("activeSlide");
+},500);
+},2500);
+
+setTimeout(()=>{
+clearInterval(interval);
+section.style.display="none";
+showLoveLetter();
+},9000);
+}
+
+function showLoveLetter(){
+let letter=document.getElementById("loveLetter");
+letter.style.display="block";
+setTimeout(()=>{
+letter.style.transform="translate(-50%,-50%) scale(1)";
+},50);
+}
+
+function startLoveGame(){
+document.getElementById("loveLetter").style.display="none";
+document.getElementById("loveGame").style.display="block";
+score=0;
+document.getElementById("score").innerText=score;
+
+gameInterval=setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*90+"%";
+heart.style.animationDuration=(Math.random()*2+2)+"s";
+heart.onclick=function(){
+score++;
+document.getElementById("score").innerText=score;
+heart.remove();
+if(score>=15){
+clearInterval(gameInterval);
+alert("You caught all my love Chella Kutty 😘💍");
+}
+};
+document.getElementById("gameArea").appendChild(heart);
+setTimeout(()=>heart.remove(),4000);
+},700);
+}
+
+</script>
+
+</body>
+</html>
+
+
